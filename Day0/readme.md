@@ -19,3 +19,14 @@ Steps followed:
 Here is the link for accessing the project for installing
 
 https://test.pypi.org/project/ex-bas1/ 
+
+## Steps for ex-basics1
+
+- Installed rich library
+```bash 
+uv add rich
+```
+- Modified hello program and printed text using rich
+
+## asciinema link
+https://asciinema.org/a/C1SLKD0BScv1DUrOwbt18GKLn
