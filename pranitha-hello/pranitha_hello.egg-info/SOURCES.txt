@@ -1,0 +1,7 @@
+README.md
+pranitha_hello.py
+pyproject.toml
+pranitha_hello.egg-info/PKG-INFO
+pranitha_hello.egg-info/SOURCES.txt
+pranitha_hello.egg-info/dependency_links.txt
+pranitha_hello.egg-info/top_level.txt
