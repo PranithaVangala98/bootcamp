@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: say-hello
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: typer>=0.15.3
+
+# Hello CLI with Typer
+This is a simple command-line interface (CLI) application built using Typer, a modern Python library for building CLI applications. It takes a name as input and prints a greeting.
+
+### Features
+
+Accepts a name as a command-line argument
+
+Prints a personalized greeting
+
+## Requirements
+
+- Python 3.7+
+- Typer
+ 
+ ## Run the script
+
+ ```
+ typer main.py run <your name>
