@@ -1,4 +1,4 @@
-from config_load import _load_config
+from .config_load import _load_config
 
 
 def say_hello(name: str) -> str:
