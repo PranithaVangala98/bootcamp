@@ -1,0 +1,14 @@
+
+
+flowchart TD
+    A[User enters username & password] --> B[Frontend sends credentials to Backend]
+    B --> C[Backend queries Database for user]
+    C --> D[Database returns user record with hashed password]
+    D --> E[Backend compares entered password with hash]
+
+    E -->|Valid| F[Generate auth token]
+    F --> G[Return token to Frontend]
+    G --> H[Frontend shows dashboard]
+
+    E -->|Invalid| I[Return 401 Unauthorized]
+    I --> J[Frontend shows error message]
