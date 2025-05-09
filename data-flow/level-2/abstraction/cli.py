@@ -1,0 +1,31 @@
+import typer
+from dotenv import load_dotenv
+from pipeline import get_processors
+from core import process_lines
+from typing import Optional
+
+load_dotenv()
+
+app = typer.Typer()
+
+
+@app.command()
+def run(
+    input: str = typer.Option(..., "--input", "-i", help="Input filename"),
+    mode: Optional[str] = typer.Option(None, "--mode", "-m", help="Processing mode"),
+    output: Optional[str] = typer.Option(
+        None, "--output", "-o", help="Output filename"
+    ),
+):
+    with open(input, "r") as f:
+        lines = [line.strip() for line in f]
+
+    processors = get_processors(mode)
+    result = process_lines(lines, processors)
+
+    if output:
+        with open(output, "w") as f:
+            f.write("\n".join(result))
+    else:
+        for line in result:
+            print(line)
