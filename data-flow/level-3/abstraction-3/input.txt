@@ -1,0 +1,10 @@
+Context-driven testing emphasizes tailoring testing strategies to the specific circumstances of a project, rather than rigidly adhering to predefined methodologies. It involves considering factors like project requirements, resources, and deadlines to optimize testing efforts. 
+Key aspects of context-driven testing:
+Adaptability:
+It's not a rigid set of techniques but a mindset focused on adapting testing methods to the project's needs.
+Flexibility:
+It allows testers to choose the most appropriate testing techniques based on the context, rather than following a one-size-fits-all approach.
+Emphasis on Project Specifics:
+It prioritizes understanding the project's unique characteristics and using that knowledge to guide testing activities.
+Resource Allocation:
+It helps determine the most effective way to allocate testing resources, focusing on the most critical aspects of the project. 
