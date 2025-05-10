@@ -1,11 +1,11 @@
 import typer
 
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from pipeline import get_processors
 from core import process_lines
 from typing import Optional
 
-# load_dotenv()
+load_dotenv()
 
 app = typer.Typer()
 
@@ -22,14 +22,15 @@ def run(
     ),
 ):
     with open(input, "r") as f:
-        lines = [line.strip() for line in f]
+        lines = [line.rstrip("\n") for line in f]
 
-    processors = get_processors(config)
-    result = process_lines(lines, processors)
+        processors = get_processors(config)
+        result = process_lines(lines, processors)
 
     if output:
         with open(output, "w") as f:
-            f.write("\n".join(result))
+            for line in result:
+                f.write(line + "\n")
     else:
         for line in result:
             print(line)

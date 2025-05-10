@@ -1,0 +1,4 @@
+pipeline:
+  - type: processors.snake.to_snakecase
+  - type: processors.upper.to_uppercase
+  - type: processors.line_number.add_line_number
