@@ -23,6 +23,7 @@ def run(
 ):
     with open(input, "r") as f:
         lines = [line.rstrip("\n") for line in f]
+
         processors = get_processors(config)
         result = process_lines(lines, processors)
 
