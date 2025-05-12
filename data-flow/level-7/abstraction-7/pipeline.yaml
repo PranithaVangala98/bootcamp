@@ -1,0 +1,46 @@
+# pipeline.yaml
+pipeline:
+  # Stage 1: Trim all input lines.
+  # Assumes initial_route_tag in cli.py is "input".
+  # This processor listens for "input" tagged lines.
+  - route: input
+    type: processors.trim.process_trimmed_lines # Updated path
+
+  # Stage 2: Classify lines based on content.
+  # Listens for lines tagged "needs_classification".
+  - route: needs_classification
+    type: processors.tagging.classify_and_tag_lines # Updated path
+    # Outputs lines tagged "errors", "warnings", or "general"
+
+  # Stage 3a: Handle errors.
+  # Listens for lines tagged "errors".
+  - route: errors
+    type: processors.error_handling.count_and_archive_errors # Updated path
+
+  # Stage 3b: Handle warnings.
+  # Listens for lines tagged "warnings".
+  - route: warnings
+    type: processors.warning_handler.tally_and_log_warnings # Updated path
+
+  # Stage 3c: Handle general lines.
+  # Listens for lines tagged "general".
+  - route: general
+    type: processors.general_handler.format_and_output_general # Updated path
+
+  # You can add other independent or sequential processing chains here as well.
+  # For example, if you still need the snake_case -> upper_case -> number_lines flow:
+  # Make sure the first processor in such a chain listens to a distinct initial tag,
+  # or is fed by an output tag from a previous processor.
+  # If starting independently, it would need a different initial input mechanism or tag.
+  # For now, focusing on the log routing example.
+
+  # - route: initial_snake_case_input # Example of a different starting point
+  #   type: processors.snake.to_snakecase
+  #   # to_snakecase should output lines tagged e.g. "ready_for_uppercase"
+
+  # - route: ready_for_uppercase
+  #   type: processors.upper.to_uppercase
+  #   # to_uppercase should output lines tagged e.g. "ready_for_numbering"
+
+  # - route: ready_for_numbering
+  #   type: processors.line_number.add_line_number
