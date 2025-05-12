@@ -1,0 +1,8 @@
+This is a normal log entry.
+WARNING: Low disk space alert.
+Another general log line.
+ERROR: Database connection failed.
+Processing important data now.
+This line will intentionally cause an error if modified.
+Warning: unusual activity detected.
+This is the final line of the input.

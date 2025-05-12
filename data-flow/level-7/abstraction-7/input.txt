@@ -1,0 +1,12 @@
+Okay, here's an example input file named input.txt that you can use to test the pipeline. It includes lines that should flow through different paths of your state transition engine.
+
+input.txt content:
+
+  This is a general message.
+Warning: Something went wrong but it's not critical.
+  Another line of general information.
+ERROR: Critical system failure detected.
+   Just a regular line.
+Warning: Disk space low.
+An unexpected fatal Error occurred!
+This is fine.
