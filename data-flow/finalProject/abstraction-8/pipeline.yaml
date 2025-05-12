@@ -1,0 +1,33 @@
+# pipeline.yaml
+#
+# This file defines the processing pipeline.
+# Each step in the pipeline is a dictionary with a 'route' and a 'type'.
+# The 'route' is the tag that lines must have to enter this processor.
+# The 'type' is the Python import path to the processor function (module_name.function_name).
+# 'routes_to' is an optional list of tags that lines output by this processor
+# *could* be routed to. The actual routing is determined by the tag returned
+# by the processor function itself.
+
+pipeline:
+  # This is the initial input route.
+  # Lines entering the system with the tag 'input' will be processed by the
+  # function specified here.
+  - route: input
+    # Corrected: Specify the full import path to the trim function in trim.py
+    # This assumes your trim function is in a file named 'trim.py' and the function is named 'trim'.
+    type: trim.trim
+    # The routes_to here is primarily for documentation or potential future use;
+    # the trim function's return tag ('default' in trim.py) determines the next step.
+    # Based on the corrected trim.py, it yields lines with the tag "default".
+    routes_to: ["default"]
+
+  # You can add other pipeline steps here.
+  # For example, if you had a processor named 'process_default' in 'my_processors.py'
+  # that should handle lines tagged 'default':
+  # - route: default
+  #   type: my_processors.process_default
+  #   routes_to: ["another_route", "final_output"]
+
+  # Lines that are output with a tag that doesn't match any 'route'
+  # in this pipeline definition will be considered terminal outputs by core.py.
+
