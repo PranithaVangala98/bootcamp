@@ -1,7 +1,0 @@
-README.md
-pyproject.toml
-ex_basics_1.egg-info/PKG-INFO
-ex_basics_1.egg-info/SOURCES.txt
-ex_basics_1.egg-info/dependency_links.txt
-ex_basics_1.egg-info/top_level.txt
-pranitha_hello/__init__.py
